@@ -1,1 +1,3 @@
-# Projeto_Individual_SpTech
+# Projeto Individual SPTech
+
+- Um projeto individual sobre ginástica rítimica 🤸‍♀️🥇
