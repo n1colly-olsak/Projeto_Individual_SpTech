@@ -1,0 +1,144 @@
+/*Importando fontes*/
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*estilizando fontes*/
+.im-fell-french-canon-regular {
+  font-family: "IM Fell French Canon", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.im-fell-french-canon-regular-italic {
+  font-family: "IM Fell French Canon", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/*fim fontes*/
+
+/*Configurando body*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*fim body*/
+
+
+/*navbar*/
+.topo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*padding: 10px 20px;*/
+    background-color: #000000;
+    color: white;
+    height: 70px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    list-style: none;
+    width: 85%;
+    /*padding: 10px;*/
+    gap: 30px;
+}
+
+.navbar img{
+    width: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: "IM Fell French Canon", serif;
+    font-size: 18px;
+}
+/*fim navbar*/
+
+
+/*banner*/
+.banner{
+    background-image: url(../IMAGENS/imagem-banner-2.jpeg   );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh; /*vh = view port altura*/ /*vw = view port largura*/
+}
+
+.fundo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    font-size: 2rem; /*muda de acordo com o tamanho da página*/
+    height: 100%;
+    width: 97vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2; /*maior o numero, mais pra frente fica*/  
+}
+
+.fundo h2{
+    margin-top: 75px;
+    margin-bottom: 150px;
+}
+/*fim banner*/
+
+
+/*conteudo paginas inicial*/
+.oqueE {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 150px;
+    background-color: #f7f4f3;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px;
+}
+
+.textoOqueE {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.textoOqueE h2{
+    margin-bottom: 10px;
+
+}
+
+.oqueE img{
+    width: 30vw;
+    border-radius: 10px;
+}
+
+.evolucao{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 150px;
+    background-color: #f7f4f3;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px;
+}
+
+.evolucao .textoEvolucao{
+
+}
+
+/*.evolucao img{
+    width: 30vw;
+    border-radius: 10px;
+}  
+*/
+
+
