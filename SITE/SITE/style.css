@@ -3,32 +3,35 @@
 
 /*estilizando fontes*/
 .im-fell-french-canon-regular {
-  font-family: "IM Fell French Canon", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "IM Fell French Canon", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .im-fell-french-canon-regular-italic {
-  font-family: "IM Fell French Canon", serif;
-  font-weight: 400;
-  font-style: italic;
+    font-family: "IM Fell French Canon", serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 
 .montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
+
 /*fim fontes*/
 
 /*Configurando body*/
-*{
+body {
+    background-color: #000000;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
+
 /*fim body*/
 
 
@@ -46,14 +49,14 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     list-style: none;
     width: 85%;
     /*padding: 10px;*/
     gap: 30px;
 }
 
-.navbar img{
+.navbar img {
     width: 50px;
 }
 
@@ -63,16 +66,20 @@ a {
     font-family: "IM Fell French Canon", serif;
     font-size: 18px;
 }
+
 /*fim navbar*/
 
 
 /*banner*/
-.banner{
+.banner {
     background-image: url(../IMAGENS/imagem-banner-2.jpeg   );
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 80vh; /*vh = view port altura*/ /*vw = view port largura*/
+    height: 80vh;
+    /*vh = view port altura*/
+    /*vw = view port largura*/
+    border-bottom: 3px solid white;
 }
 
 .fundo {
@@ -80,30 +87,188 @@ a {
     justify-content: center;
     align-items: flex-start;
     color: white;
-    font-size: 2rem; /*muda de acordo com o tamanho da página*/
+    font-size: 2rem;
+    /*muda de acordo com o tamanho da página*/
     height: 100%;
-    width: 97vw;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2; /*maior o numero, mais pra frente fica*/  
+    width: 99vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    /*maior o numero, mais pra frente fica*/
 }
 
-.fundo h2{
+.fundo h2 {
     margin-top: 75px;
     margin-bottom: 150px;
 }
+
 /*fim banner*/
 
+/* Direção do gradiente, Vermelho com 80% de opacidade */
 
 /*conteudo paginas inicial*/
+
+.tituloSobre {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    color: white;
+}
+
+.sobreAGinastica {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /*margin-top: 0px;*/
+    /*margin-left: 50px;
+    margin-right: 50px;*/
+    border-radius: 5px;
+    background: linear-gradient(to right, rgba(49, 231, 255, 0.25), rgba(118, 252, 243, 0.5), rgba(135, 244, 99, 0.708));
+    color: white;
+}
+
+/*oque é*/
+.conteudoSobre {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.textoSobre {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 515px;
+}
+
+.textoSobre h2 {
+    display: flex;
+    width: 400px;
+    height: 21px;
+}
+
+.textoSobre p {
+    display: flex;
+    margin-top: 60px;
+    height: 85px;
+    margin-right: 50px;
+    position: absolute; /*passa por cima de outras div*/
+    width: 480px;
+}
+
+.conteudoSobre .imagem {
+    display: flex;
+    margin-right: 20px;
+}
+
+.conteudoSobre img {
+    display: flex;
+    width: 40vw;
+    border-radius: 5px;
+}
+/*fim oque é */
+
+
+/*evolucao*/
+.conteudoEvolucao {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.conteudoEvolucao .imagem {
+    display: flex;
+    margin-left: 20px;
+}
+
+.conteudoEvolucao img {
+    display: flex;
+    width: 40vw;
+    border-radius: 5px;
+}
+
+.textoEvolucao {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 515px;
+}
+
+.textoEvolucao h2 {
+    display: flex;
+    width: 400px;
+    height: 21px;
+}
+
+.textoEvolucao p{
+    display: flex;
+    margin-top: 60px;
+    height: 85px;
+    margin-right: 50px;
+    position: absolute; /*passa por cima de outras div*/
+    width: 480px;
+}
+/*fim evolucao*/
+
+/*aparelhos*/
+.conteudoAparelhos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.textoAparelhos {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 515px;
+}
+
+.textoAparelhos h2 {
+    display: flex;
+    width: 400px;
+    height: 21px;
+}
+
+.textoAparelhos p {
+    display: flex;
+    margin-top: 60px;
+    height: 85px;
+    margin-right: 50px;
+    position: absolute; /*passa por cima de outras div*/
+    width: 480px;
+}
+
+.conteudoAparelhos .imagem {
+    display: flex;
+    margin-right: 20px;
+}
+
+.conteudoAparelhos img {
+    display: flex;
+    width: 40vw;
+    border-radius: 5px;
+}
+/*fim aparelhos*/
+
+/*.tituloOqueE{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 100px;
+}
+
 .oqueE {
     display: flex;
     justify-content: space-around;
-    margin-top: 150px;
-    background-color: #f7f4f3;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(49, 140, 28, 0.4), rgba(84, 84, 212, 0.4));  
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 8px;
 }
+
+
 
 .textoOqueE {
     display: flex;
@@ -111,9 +276,11 @@ a {
     margin-top: 25px;
 }
 
-.textoOqueE h2{
-    margin-bottom: 10px;
 
+.textoOqueE p{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .oqueE img{
@@ -121,24 +288,36 @@ a {
     border-radius: 10px;
 }
 
+
+.tituloEvolucao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 150px;
+}
+
 .evolucao{
     display: flex;
     justify-content: space-around;
-    margin-top: 150px;
-    background-color: #f7f4f3;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(49, 140, 28, 0.4),  rgba(84, 84, 212, 0.4));
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 8px;
+}
+    
+
+
+.textoEvolucao{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
 }
 
-.evolucao .textoEvolucao{
-
-}
-
-/*.evolucao img{
+.evolucao img {
     width: 30vw;
     border-radius: 10px;
-}  
+}
+
 */
-
-
