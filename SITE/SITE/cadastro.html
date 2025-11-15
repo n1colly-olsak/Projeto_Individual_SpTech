@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <link rel="stylesheet" href="cadastro.css"/>
+    <link rel="stylesheet" href="cadastro.css" />
 
-     <header class="topo">
-            <ul class="navbar">
-                <img src="../IMAGENS/ginastica-ritmica-com-silhueta-plana-de-fita-vetor-icone-preto-de-atleta-feminina-de-ginastica-ritmica_851725-242.avif">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href=>Eu e a ginástica</a></li>
-                <li><a href="cadastro.html">Cadastrar</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </header>
+    <div class="topo">
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
 
-        <div class="imagemCadastro">
-            <img src="../IMAGENS/imagemCadastro.jpeg">
+    <div class="videoFundo">
+            <video autoplay loop muted>
+                <source src="../IMAGENS/videoLoginCadastro.mp4" type="video/mp4">
+            </video>
+    </div>
+
+    <div class="conteudo">
+        <div class="cadastro">
+            <h2>Faça seu cadastro!</h2>
+            <div class="campoEmail">
+                <span>E-mail:</span>
+                <input id="input_Email" type="text" placeholder="seu.email@gmail.com">
+            </div>
+
+            <div class="campoSenha">
+                <span>Senha:</span>
+                <input id="input_Senha" type="text" placeholder="Senha1@">
+            </div>
+
+            <div class="botao">
+                <button onclick="enviar()">Enviar</button>
+            </div>
         </div>
+    </div>
 
-    
+
+
+
+
+
 </body>
+
 </html>
