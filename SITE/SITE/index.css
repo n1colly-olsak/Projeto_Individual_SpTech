@@ -115,6 +115,11 @@ hr{
     margin-top: 60px;
 }
 
+.oqueE p{
+    width: 500px;
+    font-size: 18px;
+}
+
 .oqueE img{
     width: 500px;
     border-radius: 20px;
@@ -130,7 +135,7 @@ hr{
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    height: 500px;
+    height: 430px;
 }
 
 .fita, .arco, .corda, .maças, .bola{
@@ -141,10 +146,6 @@ hr{
     width: 200px;
     height: 320px;
     border-radius: 15px;
-}
-
-.fita:hover, .arco:hover, .corda:hover, .maças:hover, .bola:hover{
-    filter: brightness(40%);
 }
 
 .fita{
@@ -179,7 +180,12 @@ hr{
     align-items: flex-start;
     width: 100%;
     height: 430px;
-    margin-top: 60px;
+    margin-top: 40px;
+}
+
+.evolucao p{
+    width: 500px;
+    font-size: 18px;
 }
 
 .evolucao img{
@@ -194,6 +200,11 @@ hr{
     width: 100%;
     height: 430px;
     margin-top: 60px;
+}
+
+.brasil p{
+    width: 500px;
+    font-size: 18px;
 }
 
 .brasil img{

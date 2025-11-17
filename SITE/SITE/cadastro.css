@@ -63,14 +63,14 @@ a {
     border-radius: 20px;
 }
 
-.campoEmail, .campoSenha {
+.campoEmail, .campoSenha, .campoNome {
     width: 70%;
     display: flex;
     flex-direction: column;
     font-size: 16px;
 }
 
-#input_Email, #input_Senha{
+#input_email, #input_senha, #input_nome{
     margin-top: 6px;
     padding: 10px;
     border: none;
