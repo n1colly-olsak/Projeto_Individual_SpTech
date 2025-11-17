@@ -3,7 +3,7 @@ body {
     padding: 0px;
     height: 80vh;
     box-sizing: border-box;
-    background-image: url(../IMAGENS/cadastro2.jpeg);
+    background-image: url(../IMAGENS/login3.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,17 +14,17 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: transparent;
     margin-top: 10px;
     height: 70px;
+    
 }
 
 .topo ul{
     display: flex;
     justify-content: space-around;
     padding-bottom: 10px;
-    border-bottom: 2px solid rgb(255, 255, 255);
-    width: 150px;
+    background: rgba(0, 0, 0, 0.727);
+    width: 200px;
 }
 
 .navbar {
@@ -33,13 +33,13 @@ body {
     align-items: center;
     list-style: none;
     width: 15vw;
+    height: 7vh;
     margin-top: 20px;
 }
 
 a {
     text-decoration: none;
     color: rgb(255, 255, 255);
-
     font-size: 20px;
 }
 
@@ -51,7 +51,7 @@ a {
     height: 100%;
 }
 
-.cadastro{
+.login{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
