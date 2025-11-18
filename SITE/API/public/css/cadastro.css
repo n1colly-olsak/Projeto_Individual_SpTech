@@ -3,7 +3,7 @@ body {
     padding: 0px;
     height: 80vh;
     box-sizing: border-box;
-    background-image: url(../IMAGENS/cadastro2.jpeg);
+    background-image: url(IMAGENS/imagemCadastro.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
