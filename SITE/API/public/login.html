@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/login.css" />
     <title>Document</title>
 </head>
 
@@ -31,11 +31,70 @@
             </div>
 
             <div class="botao">
-                <button onclick="autenticar()">Entrar</button>
+                <button onclick="entrar()">Entrar</button>
             </div>
-            
+
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    function entrar() {
+        var email = input_Email.value;
+        var senha = input_Senha.value;
+
+        if (email == '' || senha == '') {
+            alert('Preencha todos os campos.');
+        } else {
+            console.log("FORM LOGIN: ", email);
+            console.log("FORM SENHA: ", senha);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+                    console.log('deu ok')
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        console.log('deu bom')
+
+                        window.location = "quiz.html";
+                        alert('Autenticado')
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+    }
+
+</script>
