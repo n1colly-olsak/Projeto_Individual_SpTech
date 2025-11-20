@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
 </head>
+
 <body>
     <header>
         <h1>Quiz interativo para programadores</h1>
@@ -36,7 +38,7 @@
 
         <section>
             <h2>Pergunta 2: Qual desses itens NÃO é um aparelho utilizado na ginástica rítmica?</h2>
-            <form> 
+            <form>
                 <input type="radio" value="5" id="p2a" name="pergunta2">
                 <label for="p2a">Corda</label> <br>
 
@@ -53,7 +55,7 @@
 
         <section>
             <h2>Pergunta 3: Quando a ginástica rítmica passou a ser modalidade competitiva nos Jogos Olímpicos?</h2>
-            <form> 
+            <form>
                 <input type="radio" value="9" id="p3a" name="pergunta3">
                 <label for="p3a">1942</label> <br>
 
@@ -70,7 +72,7 @@
 
         <section>
             <h2>Pergunta 4: Em que país ocorreu o primeiro campeonato nacional de ginástica rítmica, em 1942?</h2>
-            <form> 
+            <form>
                 <input type="radio" value="13" id="p4a" name="pergunta4">
                 <label for="p4a">Alemanha</label> <br>
 
@@ -87,7 +89,7 @@
 
         <section>
             <h2>Pergunta 5: Qual foi a primeira campeã mundial da ginástica rítmica, em 1963?</h2>
-            <form> 
+            <form>
                 <input type="radio" value="17" id="p5a" name="pergunta5">
                 <label for="p5a">Isadora Duncan</label> <br>
 
@@ -104,7 +106,7 @@
 
         <section>
             <h2>Pergunta 6: Em qual edição olímpica a prova de conjunto (grupos) estreou?</h2>
-            <form> 
+            <form>
                 <input type="radio" value="21" id="p6a" name="pergunta6">
                 <label for="p6a">Los Angeles 1984</label> <br>
 
@@ -137,7 +139,8 @@
         </section>
 
         <section>
-            <h2>Pergunta 8: . Quem levou a ginástica rítmica para a União Soviética, iniciando seu desenvolvimento como prática independente?</h2>
+            <h2>Pergunta 8: . Quem levou a ginástica rítmica para a União Soviética, iniciando seu desenvolvimento como
+                prática independente?</h2>
             <form>
                 <input type="radio" value="29" id="p8a" name="pergunta8">
                 <label for="p8a">Guts Muths</label> <br>
@@ -151,14 +154,51 @@
                 <input type="radio" value="32" id="p8d" name="pergunta8">
                 <label for="p8d">Heinrich Medau</label> <br>
             </form>
+            <button onclick="registrarTentativa()">Finalizar Quiz</button>
         </section>
 
-        
-
-        <section>
-            
-        </section>
+        <!--Botão de enviar-->
     </main>
     <footer></footer>
 </body>
+
 </html>
+
+<Script>
+    function registrarTentativa() {
+       // var respotas1 = input_p1a.value;
+        var contAcerto = 0;
+        var fkUsuario = 1;  
+
+        //validar as respostas corretas
+
+        
+
+        fetch("/tentativa/registrarTentativa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                contAcertoServer: contAcerto,
+                fkUsuarioServer: fkUsuario,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log('Tentativa efetuada com sucesso!')
+
+                } else {
+                    throw "Houve um erro ao tentar realizar a tentativa!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        return false;
+    }
+</Script>
