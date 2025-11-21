@@ -128,7 +128,7 @@
                 <label for="p7a">10 x 10 m</label> <br>
 
                 <input type="radio" value="26" id="p7b" name="pergunta7">
-                <label for="p7b">14 x 14 m</label> <br>
+                <label for="p7b">13 x 13 m</label> <br>
 
                 <input type="radio" value="27" id="p7c" name="pergunta7">
                 <label for="p7c">20 x 20 m</label> <br>
@@ -165,12 +165,30 @@
 </html>
 
 <Script>
+    var teste = p1a.value;
+        console.log(teste)
     function registrarTentativa() {
        // var respotas1 = input_p1a.value;
         var contAcerto = 0;
         var fkUsuario = 1;  
 
+        
         //validar as respostas corretas
+
+        for (var i = 1; i <= 8; i++) {
+        var nome = name + i;
+        const selecionada = document.querySelector(`input[name="${nome}"]:checked`);
+        
+        if (selecionada) {
+            if (selecionada.value === gabarito[nome]) {
+                pontuacao++;
+            }
+        }
+    }
+
+    alert("Você acertou " + pontuacao + " de 8 perguntas!");
+}
+
 
         
 
@@ -198,7 +216,8 @@
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
+                return false;
             });
-        return false;
-    }
+        
+    
 </Script>
