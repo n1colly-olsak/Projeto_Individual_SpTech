@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: white;
+}
+
+.navegacao{
+    display: flex;
+    justify-content: space-around;
+    background-color: blueviolet;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    margin-right: 40px;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: "IM Fell French Canon", serif;
+    font-size: 25px;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: blue;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.areaQuiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.345);
+    border-radius: 20px;
+}

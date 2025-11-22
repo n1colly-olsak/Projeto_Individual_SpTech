@@ -17,13 +17,13 @@
 
             <ul class="navbar">
                 <li><a href="index.html">Início</a></li>
-                <li><a href=></a>Acessar dashboard</li>
+                <li><a href="dashboard.html">Acessar dashboard</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <section class="sobreQuiz" id="">
+        <section class="sobreQuiz" id="sobreQuiz">
             <h2>Sobre esse quiz</h2>
             <p>Após navegar pelo site, está na hora de testar seus conhecimentos sobre a ginástica rítmica.</p>
             <p>Responda às 8 perguntas do quiz e depois visualize seus dados na dashboard.</p>
@@ -176,18 +176,19 @@
     </footer>
 
 </body>
+
 </html>
 
 <Script>
 
-    var idPerguntas = [pergunta1, 
-    pergunta2, 
-    pergunta3, 
-    pergunta4, 
-    pergunta5, 
-    pergunta6, 
-    pergunta7, 
-    pergunta8];
+    var idPerguntas = [pergunta1,
+        pergunta2,
+        pergunta3,
+        pergunta4,
+        pergunta5,
+        pergunta6,
+        pergunta7,
+        pergunta8];
 
     var gabarito = {
         pergunta1: "2", //pergunta corresponde e value da alternativa
@@ -200,30 +201,44 @@
         pergunta8: "31"
     };
 
+    var sobreQuiz = document.getElementById("sobreQuiz");
+    var pergunta1 = document.getElementById("pergunta1");
+    var pergunta2 = document.getElementById("pergunta2");
+    var pergunta3 = document.getElementById("pergunta3");
+    var pergunta4 = document.getElementById("pergunta4");
+    var pergunta5 = document.getElementById("pergunta5");
+    var pergunta6 = document.getElementById("pergunta6");
+    var pergunta7 = document.getElementById("pergunta7");
+    var pergunta8 = document.getElementById("pergunta8");
+
+    var contAcerto = 0;
+    var fkUsuario = sessionStorage.ID_USUARIO;
+
     function esconderDivs() {
-        function onloadEsconder() {
-            window.location.href="#pergunta1"
-            window.location.href="#pergunta2"
-            window.location.href="#pergunta3"
-            window.location.href="#pergunta4"
-            window.location.href="#pergunta5"
-            window.location.href="#pergunta6"
-            window.location.href="#pergunta7"
-            window.location.href="#pergunta8"
-        }
+        // mostrar apenas a div sobreQuiz
+        sobreQuiz.style.display = flex;
+        pergunta1.style.display = none;
+        pergunta2.style.display = flex;
+        pergunta3.style.display = flex;
+        pergunta4.style.display = flex;
+        pergunta5.style.display = flex;
+        pergunta6.style.display = flex;
+        pergunta7.style.display = flex;
+        pergunta8.style.display = flex;
+
     }
 
-    function IniciarQuiz(){
+    function IniciarQuiz() {
         //deixar div sobreQuiz none e mostrar a da pergunta1
+        sobreQuiz.style.display = none;
+        pergunta1.style.display = flex;
     }
 
-    function proximaPergunta(){
-        // ocultar a div e mostrar a próxima
+    function proximaPergunta() {
+        // ocultar a div atual e mostrar a próxima
     }
 
     function registrarTentativa() {
-        var contAcerto = 0;
-        var fkUsuario = sessionStorage.ID_USUARIO;
 
         for (var i = 1; i <= 8; i++) {
             var nome = "pergunta" + i;
@@ -261,6 +276,5 @@
                 return false;
             });
     }
-
 
 </Script>

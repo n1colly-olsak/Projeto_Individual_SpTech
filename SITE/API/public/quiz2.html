@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/quiz2.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="navegacao">
+            <div class="olaUser">
+                <span>Olá, user</span>
+            </div>
+
+            <ul class="navbar">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="dashboard.html">Acessar dashboard</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="principal">
+        <div class=titulo>
+            <h2>Quiz</h2>
+        </div>
+
+        <div class="areaQuiz">
+            <div class="quiz">
+                <h2 id="h2_pergunta"></h2> <!--Pergunta-->
+                <div class="div_alternativas" id="id_div_alternativas"> <!--Alternativas-->
+
+                </div>
+            </div>
+            <button onclick="proxima()">Próxima pergunta</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    var contAcerto = 0;
+    var erros = contAcerto - 8;
+    var fkUsuario = sessionStorage.ID_USUARIO; //pegando o id do usuário ao fazer o login
+    var nomeUsuario = sessionStorage.NOME_USUARIO; //pegando o nomme do usuário ao fazer o login
+
+    var pergunta = document.getElementById("h2_pergunta"); // pegando o id da div que vai a pergunta
+    var alternativa = document.getElementById("id_div_alternativas"); // pegadno o id da div que vai as alternativas
+
+    // após pegar os id, será possivel colocar novos valores dentro desssas divs 
+
+    var indiceAtual = 0; // percorrer minha variavel perguntas
+
+    var perguntas = [
+        {
+            pergunta: "A ginástica rítmica combina movimentos corporais com elementos de qual área artística?",
+            certa: "Teatro e ballet",
+            alternativas: [
+                "Escultura",
+                "Teatro e ballet",
+                "Pintura",
+                "Poesia.",
+            ],
+        },
+        {
+            pergunta: "Qual desses itens NÃO é um aparelho utilizado na ginástica rítmica?",
+            certa: "Trave",
+            alternativas: [
+                "Corda",
+                "Arco",
+                "Trave",
+                "Fita",
+            ],
+        },
+        {
+            pergunta: "Quando a ginástica rítmica passou a ser modalidade competitiva nos Jogos Olímpicos?",
+            certa: "1984",
+            alternativas: [
+                "1942",
+                "1980",
+                "1984",
+                "1996",
+            ],
+        },
+        {
+            pergunta: "Em que país ocorreu o primeiro campeonato nacional de ginástica rítmica, em 1942?",
+            certa: "União Soviética",
+            alternativas: [
+                "União Soviética",
+                "Canadá",
+                "Alemanha",
+                "Japão",
+            ],
+        },
+        {
+            pergunta: "Qual foi a primeira campeã mundial da ginástica rítmica, em 1963?",
+            certa: "Ludmila Savinkova",
+            alternativas: [
+                "Isadora Duncan",
+                "Lori Fung",
+                "Rosália Medau",
+                "Ludmila Savinkova",
+            ],
+        },
+        {
+            pergunta: "Em qual edição olímpica a prova de conjunto (grupos) estreou?",
+            certa: "Atlanta 1996",
+            alternativas: [
+                "Los Angeles 1984",
+                "Atlanta 1996",
+                "Atenas 2004",
+                "Moscou 1980",
+            ],
+        },
+        {
+            pergunta: "Em competições oficiais, a área (tablado) onde a ginasta se apresenta mede:",
+            certa: "Teatro e ballet",
+            alternativas: [
+                "13 x 13 m",
+                "10 x 10 m",
+                "20 x 20 m",
+                "18 x 18 m",
+            ],
+        },
+        {
+            pergunta: "Quem levou a ginástica rítmica para a União Soviética, iniciando seu desenvolvimento como prática independente?",
+            certa: "Isadora Duncan",
+            alternativas: [
+                "Guts Muths",
+                "Rudolf Bode",
+                "Isadora Duncan",
+                "Heinrich Medau",
+            ],
+        },
+    ];
+
+    function carregarPergunta() {
+        // na minha lista de perguntas, o indice atual esta em zero, pegando meu primeiro objeto de pergunta:
+        var perguntaAtual = perguntas[indiceAtual];
+
+        // utilizando a perguntaAtual, que está em 0, para acessar a propriedade de pergunta do meu json
+        // e colocar dentro do h2 
+        h2_pergunta.innerHTML = perguntaAtual.pergunta;
+
+        // div que vai as alternativas da pergunta
+        alternativa.innerHTML = "";
+
+
+        // para cada loop, a div_alternativas vai receber as alternativas do meu json
+        // perguntaAtual é a pergunta que eu estou,
+        // alternativas.length é a quantidade de alternativas na propriedade alternativas do meu json
+        for (var i = 0; i < perguntaAtual.alternativas.length; i++) {
+            alternativa.innerHTML += `<label><input type="radio" name="pergunta"> ${perguntaAtual.alternativas[i]}</label>`
+        }
+    }
+    carregarPergunta();
+
+    function proxima() {
+        // o botao para pular para a próxima pergunta
+
+        //essa varialvel tem a funcao de através de uma consulta de seleção,
+        // verificar se a input está selecionada, utilizando como identificação
+        // o parâmetro de "name".
+        var selecionada = document.querySelector('input[name="pergunta"]:checked'); 
+
+        //chama a variavel seleionada e ve se ela está vazia, se estiver,
+        // um alerta é exibido.
+        if (selecionada == null) {
+            alert("Selecione uma alternativa!");
+            return;
+        }
+
+        // o textoSelecionado, é o texto que minha opção tem,
+        // ele pega a input selecionada e usa o nextSibling para 
+        // caminhar para o lado
+        var textoSelecionado = selecionada.nextSibling.nodeValue.trim();
+
+        var perguntaAtual = perguntas[indiceAtual];
+
+        if (textoSelecionado == perguntaAtual.certa) {
+            contAcerto++;
+        }
+
+        indiceAtual++;
+
+        if (indiceAtual >= perguntas.length) {
+            alert("Fim do quiz! Acertos: " + contAcerto);
+            return;
+        }
+
+        carregarPergunta();
+    }
+
+
+
+
+</script>

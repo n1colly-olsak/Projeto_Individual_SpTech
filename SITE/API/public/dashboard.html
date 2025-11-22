@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="navegacao">
+        
+            <ul class="navbar">
+                <span>Olá, user</span>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="telaUsuario.html">Tela de usuário</a></li>
+            </ul>
+
+        </div>
+
+    <div class="dashboard">
+
+        <div class="grafico">
+            <h2>Histórico de acertos nas 4 tentativas</h2>
+            <canvas id="graficoTentativas"></canvas>
+        </div>
+
+        <div class="kpis">
+            
+            <div class="kpiAcerto">
+                <p>Acertos na última tentativa</p>
+                <p>oi</p>
+            </div>
+
+            
+            <div class="kpiErro">
+                <p>Erros na última tentativa</p>
+                <p>oi</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+    
+</body>
+
+<script>
+  const ctx = document.getElementById('graficoTentativas');
+
+  var tentativas = ["tentativa1", "tentativa2", "tentativa3", "tentativa4"]
+  var acertos = [3,4,2,7];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: tentativas,
+      datasets: [{
+        label: 'Acertos',
+        data: acertos,
+        borderWidth: 1,
+        backgroundColor: 'rgba(183, 2, 254, 0.486)',
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+</script>
+    
+
+</html>

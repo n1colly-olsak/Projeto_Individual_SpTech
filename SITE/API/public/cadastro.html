@@ -48,22 +48,19 @@
 
 <script>
     function cadastrar() {
-        // aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var nome = input_nome.value;
         var email = input_email.value;
         var senha = input_senha.value;
 
+        if (nome == "" || email == "" || senha == "") {
 
-        // Verificando se há algum campo em branco
-        if (
-            nome == "" ||
-            email == "" ||
-            senha == ""
-        ) {
             alert('Preencha todos os campos.');
+
+        } else if (senha.length < 8 ){
+            
+            alert('A senha deve conter no mínimo 8 caracteres');
+
         } else {
             // Enviando o valor da nova input 
             fetch("/usuarios/cadastrar", { //rota

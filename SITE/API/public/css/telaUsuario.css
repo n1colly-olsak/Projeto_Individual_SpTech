@@ -18,9 +18,9 @@ main {
     
 }
 
-/*.pergunta1, .pergunta2, .pergunta3, .pergunta4, .pergunta5, .pergunta6, .pergunta7, .pergunta8 {
+#pergunta1, #pergunta2, #pergunta3, #pergunta4, #pergunta5, #pergunta6, #pergunta7, #pergunta8 {
     display: none;
-}*/
+}
 
 .sobreQuiz, .pergunta1, .pergunta2, .pergunta3, .pergunta4, .pergunta5, .pergunta6, .pergunta7, .pergunta8  {
     display: flex;

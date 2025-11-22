@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-image: url(IMAGENS/imagemDash2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+}
+
+.navegacao{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    margin-right: 40px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+}
+
+.grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 450px;
+    background: rgba(0, 0, 0, 0.486);
+    border-radius: 20px;
+}
+
+.kpis {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: space-around;
+    width: 250px;
+    height: 91vh;
+}
+
+.kpiAcerto, .kpiErro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 180px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.486);
+}
