@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #3cf3b9,#3cbc3a);
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-items: space-between;
+    
+}
+
+/*.pergunta1, .pergunta2, .pergunta3, .pergunta4, .pergunta5, .pergunta6, .pergunta7, .pergunta8 {
+    display: none;
+}*/
+
+.sobreQuiz, .pergunta1, .pergunta2, .pergunta3, .pergunta4, .pergunta5, .pergunta6, .pergunta7, .pergunta8  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 400px;
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.345);
+    border-radius: 20px;
+}
+
+.pergunta1 h2{
+    width: 70%;
+}
+
+.pergunta2 h2{
+    width: 70%;
+}
+
+.pergunta3 h2{
+    width: 70%;
+}
+
+.pergunta4 h2{
+    width: 75%; 
+}
+
+.pergunta5 h2{
+    width: 70%;
+}
+
+.pergunta6 h2{
+    width: 70%;
+}
+
+.pergunta7 h2{
+    width: 70%;
+}
+
+.pergunta8 h2{
+    width:90%;
+}
+
+/*input[type=radio] {
+    display: none;
+}*/
+
+.navegacao{
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    margin-right: 40px;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: "IM Fell French Canon", serif;
+    font-size: 25px;
+}

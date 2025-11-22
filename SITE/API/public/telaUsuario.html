@@ -5,22 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="css/telaUsuario.css" />
 </head>
 
-<body>
+<body onload="esconderDivs()">
     <header>
-        <h1>Quiz interativo para programadores</h1>
+        <div class="navegacao">
+            <div class="olaUser">
+                <span>Olá, user</span>
+            </div>
+
+            <ul class="navbar">
+                <li><a href="index.html">Início</a></li>
+                <li><a href=></a>Acessar dashboard</li>
+            </ul>
+        </div>
     </header>
+
     <main>
-        <section>
+        <section class="sobreQuiz" id="">
             <h2>Sobre esse quiz</h2>
             <p>Após navegar pelo site, está na hora de testar seus conhecimentos sobre a ginástica rítmica.</p>
             <p>Responda às 8 perguntas do quiz e depois visualize seus dados na dashboard.</p>
             <p>Na dashboard, você pode acompanhar a sua evolução no tema.</p>
+            <button onclick="IniciarQuiz()">Iniciar Quiz</button>
         </section>
 
-        <section>
-            <h2>Pergunta 1: A ginástica rítmica combina movimentos corporais com elementos de qual área artística?</h2>
+        <section class="pergunta1" id="pergunta1">
+            <h2>1. A ginástica rítmica combina movimentos corporais com elementos de qual área artística?</h2>
             <form> <!--formulario, -->
                 <input type="radio" value="1" id="p1a" name="pergunta1">
                 <label for="p1a">Escultura</label> <br>
@@ -34,10 +46,11 @@
                 <input type="radio" value="4" id="p1d" name="pergunta1">
                 <label for="p1d">Poesia</label> <br>
             </form>
+            <button onlick="proximaPergunta">Próxima</button>
         </section>
 
-        <section>
-            <h2>Pergunta 2: Qual desses itens NÃO é um aparelho utilizado na ginástica rítmica?</h2>
+        <section class="pergunta2" id="pergunta2">
+            <h2>2: Qual desses itens NÃO é um aparelho utilizado na ginástica rítmica?</h2>
             <form>
                 <input type="radio" value="5" id="p2a" name="pergunta2">
                 <label for="p2a">Corda</label> <br>
@@ -53,8 +66,8 @@
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 3: Quando a ginástica rítmica passou a ser modalidade competitiva nos Jogos Olímpicos?</h2>
+        <section class="pergunta3" id="pergunta3">
+            <h2>3: Quando a ginástica rítmica passou a ser modalidade competitiva nos Jogos Olímpicos?</h2>
             <form>
                 <input type="radio" value="9" id="p3a" name="pergunta3">
                 <label for="p3a">1942</label> <br>
@@ -70,25 +83,25 @@
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 4: Em que país ocorreu o primeiro campeonato nacional de ginástica rítmica, em 1942?</h2>
+        <section class="pergunta4" id="pergunta4">
+            <h2>4: Em que país ocorreu o primeiro campeonato nacional de ginástica rítmica, em 1942?</h2>
             <form>
                 <input type="radio" value="13" id="p4a" name="pergunta4">
-                <label for="p4a">Alemanha</label> <br>
+                <label for="p4a">União Soviética</label> <br>
 
                 <input type="radio" value="14" id="p4b" name="pergunta4">
                 <label for="p4b">Canadá</label> <br>
 
                 <input type="radio" value="15" id="p4c" name="pergunta4">
-                <label for="p4c">União Soviética</label> <br>
+                <label for="p4c">Alemanha</label> <br>
 
                 <input type="radio" value="16" id="p4d" name="pergunta4">
                 <label for="p4d">Japão</label> <br>
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 5: Qual foi a primeira campeã mundial da ginástica rítmica, em 1963?</h2>
+        <section class="pergunta5" id="pergunta5">
+            <h2>5: Qual foi a primeira campeã mundial da ginástica rítmica, em 1963?</h2>
             <form>
                 <input type="radio" value="17" id="p5a" name="pergunta5">
                 <label for="p5a">Isadora Duncan</label> <br>
@@ -97,38 +110,38 @@
                 <label for="p5b">Lori Fung</label> <br>
 
                 <input type="radio" value="19" id="p5c" name="pergunta5">
-                <label for="p5c">Ludmila Savinkova</label> <br>
+                <label for="p5c">Rosália Medau</label> <br>
 
                 <input type="radio" value="20" id="p5d" name="pergunta5">
-                <label for="p5d">Rosália Medau</label> <br>
+                <label for="p5d">Ludmila Savinkova</label> <br>
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 6: Em qual edição olímpica a prova de conjunto (grupos) estreou?</h2>
+        <section class="pergunta6" id="pergunta6">
+            <h2>6: Em qual edição olímpica a prova de conjunto (grupos) estreou?</h2>
             <form>
                 <input type="radio" value="21" id="p6a" name="pergunta6">
                 <label for="p6a">Los Angeles 1984</label> <br>
 
                 <input type="radio" value="22" id="p6b" name="pergunta6">
-                <label for="p6b">Moscou 1980</label> <br>
+                <label for="p6b">Atlanta 1996</label> <br>
 
                 <input type="radio" value="23" id="p6c" name="pergunta6">
                 <label for="p6c">Atenas 2004</label> <br>
 
                 <input type="radio" value="24" id="p6d" name="pergunta6">
-                <label for="p6d">Atlanta 1996</label> <br>
+                <label for="p6d">Moscou 1980</label> <br>
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 7: Em competições oficiais, a área (tablado) onde a ginasta se apresenta mede:</h2>
+        <section class="pergunta7" id="pergunta7">
+            <h2>7: Em competições oficiais, a área (tablado) onde a ginasta se apresenta mede:</h2>
             <form>
                 <input type="radio" value="25" id="p7a" name="pergunta7">
-                <label for="p7a">10 x 10 m</label> <br>
+                <label for="p7a">13 x 13 m</label> <br>
 
                 <input type="radio" value="26" id="p7b" name="pergunta7">
-                <label for="p7b">13 x 13 m</label> <br>
+                <label for="p7b">10 x 10 m</label> <br>
 
                 <input type="radio" value="27" id="p7c" name="pergunta7">
                 <label for="p7c">20 x 20 m</label> <br>
@@ -138,59 +151,90 @@
             </form>
         </section>
 
-        <section>
-            <h2>Pergunta 8: . Quem levou a ginástica rítmica para a União Soviética, iniciando seu desenvolvimento como
+        <section class="pergunta8" id="pergunta8">
+            <h2>8: . Quem levou a ginástica rítmica para a União Soviética, iniciando seu desenvolvimento como
                 prática independente?</h2>
             <form>
                 <input type="radio" value="29" id="p8a" name="pergunta8">
                 <label for="p8a">Guts Muths</label> <br>
 
                 <input type="radio" value="30" id="p8b" name="pergunta8">
-                <label for="p8b">Isadora Duncan</label> <br>
+                <label for="p8b">Rudolf Bode</label> <br>
 
                 <input type="radio" value="31" id="p8c" name="pergunta8">
-                <label for="p8c">Rudolf Bode</label> <br>
+                <label for="p8c">Isadora Duncan</label> <br>
 
                 <input type="radio" value="32" id="p8d" name="pergunta8">
                 <label for="p8d">Heinrich Medau</label> <br>
             </form>
             <button onclick="registrarTentativa()">Finalizar Quiz</button>
+
         </section>
-
-        <!--Botão de enviar-->
     </main>
-    <footer></footer>
-</body>
 
+    <footer>
+    </footer>
+
+</body>
 </html>
 
 <Script>
-    var teste = p1a.value;
-        console.log(teste)
-    function registrarTentativa() {
-       // var respotas1 = input_p1a.value;
-        var contAcerto = 0;
-        var fkUsuario = 1;  
 
-        
-        //validar as respostas corretas
+    var idPerguntas = [pergunta1, 
+    pergunta2, 
+    pergunta3, 
+    pergunta4, 
+    pergunta5, 
+    pergunta6, 
+    pergunta7, 
+    pergunta8];
 
-        for (var i = 1; i <= 8; i++) {
-        var nome = name + i;
-        const selecionada = document.querySelector(`input[name="${nome}"]:checked`);
-        
-        if (selecionada) {
-            if (selecionada.value === gabarito[nome]) {
-                pontuacao++;
-            }
+    var gabarito = {
+        pergunta1: "2", //pergunta corresponde e value da alternativa
+        pergunta2: "7",
+        pergunta3: "11",
+        pergunta4: "13",
+        pergunta5: "20",
+        pergunta6: "22",
+        pergunta7: "25",
+        pergunta8: "31"
+    };
+
+    function esconderDivs() {
+        function onloadEsconder() {
+            window.location.href="#pergunta1"
+            window.location.href="#pergunta2"
+            window.location.href="#pergunta3"
+            window.location.href="#pergunta4"
+            window.location.href="#pergunta5"
+            window.location.href="#pergunta6"
+            window.location.href="#pergunta7"
+            window.location.href="#pergunta8"
         }
     }
 
-    alert("Você acertou " + pontuacao + " de 8 perguntas!");
-}
+    function IniciarQuiz(){
+        //deixar div sobreQuiz none e mostrar a da pergunta1
+    }
 
+    function proximaPergunta(){
+        // ocultar a div e mostrar a próxima
+    }
 
-        
+    function registrarTentativa() {
+        var contAcerto = 0;
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        for (var i = 1; i <= 8; i++) {
+            var nome = "pergunta" + i;
+            var selecionada = document.querySelector(`input[name="${nome}"]:checked`);
+
+            if (selecionada) { //se a variavel tiver checada/selecionada
+                if (selecionada.value === gabarito[nome]) {
+                    contAcerto++;
+                }
+            }
+        }
 
         fetch("/tentativa/registrarTentativa", {
             method: "POST",
@@ -198,8 +242,6 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 contAcertoServer: contAcerto,
                 fkUsuarioServer: fkUsuario,
             }),
@@ -208,16 +250,17 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    console.log('Tentativa efetuada com sucesso!')
+                    console.log('Tentativa registrada!')
 
                 } else {
-                    throw "Houve um erro ao tentar realizar a tentativa!";
+                    throw "Erro ao registrar tentativa!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
                 return false;
             });
-        
-    
+    }
+
+
 </Script>
