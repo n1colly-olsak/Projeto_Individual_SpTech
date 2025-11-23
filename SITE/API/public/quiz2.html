@@ -24,18 +24,21 @@
     </header>
 
     <div class="principal">
+
         <div class=titulo>
+
             <h2>Quiz</h2>
+
         </div>
 
-        <div class="areaQuiz">
-            <div class="quiz">
-                <h2 id="h2_pergunta"></h2> <!--Pergunta-->
-                <div class="div_alternativas" id="id_div_alternativas"> <!--Alternativas-->
+        <div class="areaQuiz" id="areaQuiz">
 
-                </div>
-            </div>
-            <button onclick="proxima()">Próxima pergunta</button>
+            <h2>Sobre esse quiz</h2>
+            <p>Após navegar pelo site, está na hora de testar seus conhecimentos sobre a ginástica rítmica.</p>
+            <p>Responda às 8 perguntas do quiz e depois visualize seus dados na dashboard.</p>
+            <p>Na dashboard, você pode acompanhar a sua evolução no tema.</p>
+            <button onclick="IniciarQuiz()">Iniciar Quiz</button>
+
         </div>
     </div>
 
@@ -45,16 +48,23 @@
 <script>
 
     var contAcerto = 0;
-    var erros = contAcerto - 8;
+    var indiceAtual = 0; // percorrer minha variavel perguntas
+    var erro = 0;
+
     var fkUsuario = sessionStorage.ID_USUARIO; //pegando o id do usuário ao fazer o login
     var nomeUsuario = sessionStorage.NOME_USUARIO; //pegando o nomme do usuário ao fazer o login
 
+    // após pegar os id, será possivel colocar novos valores dentro desssas divs 
     var pergunta = document.getElementById("h2_pergunta"); // pegando o id da div que vai a pergunta
     var alternativa = document.getElementById("id_div_alternativas"); // pegadno o id da div que vai as alternativas
 
-    // após pegar os id, será possivel colocar novos valores dentro desssas divs 
-
-    var indiceAtual = 0; // percorrer minha variavel perguntas
+    var telaInicial = `
+    <h2>Sobre esse quiz</h2>
+    <p>Após navegar pelo site, está na hora de testar seus conhecimentos sobre a ginástica rítmica.</p>
+    <p>Responda às 8 perguntas do quiz e depois visualize seus dados na dashboard.</p>
+    <p>Na dashboard, você pode acompanhar a sua evolução no tema.</p>
+    <button onclick="IniciarQuiz()">Iniciar Quiz</button>
+`;
 
     var perguntas = [
         {
@@ -64,7 +74,7 @@
                 "Escultura",
                 "Teatro e ballet",
                 "Pintura",
-                "Poesia.",
+                "Poesia",
             ],
         },
         {
@@ -119,7 +129,7 @@
         },
         {
             pergunta: "Em competições oficiais, a área (tablado) onde a ginasta se apresenta mede:",
-            certa: "Teatro e ballet",
+            certa: "13 x 13 m",
             alternativas: [
                 "13 x 13 m",
                 "10 x 10 m",
@@ -139,6 +149,23 @@
         },
     ];
 
+    function IniciarQuiz() {
+        var area = document.getElementById("areaQuiz");
+
+        area.innerHTML = `
+        <div class="quiz">
+            <h2 id="h2_pergunta"></h2>
+            <div class="div_alternativas" id="id_div_alternativas"></div>
+        </div>
+        <button id="proxima" onclick="proxima()">Próxima pergunta</button>
+    `;
+
+        pergunta = document.getElementById("h2_pergunta");
+        alternativa = document.getElementById("id_div_alternativas");
+
+        carregarPergunta();
+    }
+
     function carregarPergunta() {
         // na minha lista de perguntas, o indice atual esta em zero, pegando meu primeiro objeto de pergunta:
         var perguntaAtual = perguntas[indiceAtual];
@@ -155,48 +182,97 @@
         // perguntaAtual é a pergunta que eu estou,
         // alternativas.length é a quantidade de alternativas na propriedade alternativas do meu json
         for (var i = 0; i < perguntaAtual.alternativas.length; i++) {
-            alternativa.innerHTML += `<label><input type="radio" name="pergunta"> ${perguntaAtual.alternativas[i]}</label>`
+            alternativa.innerHTML += `<label><input type="radio" name="pergunta">${perguntaAtual.alternativas[i]}</label>`
         }
     }
-    carregarPergunta();
 
+    // o botao para pular para a próxima pergunta
     function proxima() {
-        // o botao para pular para a próxima pergunta
 
         //essa varialvel tem a funcao de através de uma consulta de seleção,
         // verificar se a input está selecionada, utilizando como identificação
-        // o parâmetro de "name".
-        var selecionada = document.querySelector('input[name="pergunta"]:checked'); 
+        // o parâmetro de "name", ou seja, procurando qualquer input que faça parte
+        // desse grupo/name, que esteja selecionada.
+        var selecionada = document.querySelector("input[name='pergunta']:checked");
+    
 
-        //chama a variavel seleionada e ve se ela está vazia, se estiver,
-        // um alerta é exibido.
+        //se a variavel selecionada não achar nenhum elemento selecionado
+        //return utilizado para não executar mais código se selecionada estiver nulo
         if (selecionada == null) {
             alert("Selecione uma alternativa!");
             return;
+        } else {
+
+            // essa variavel vai utilizar a minha variavel selecionada
+            // utiliza o nextSibling para "caminhar" para o lado da input,
+            // acessando o texto da label e lendo esse texto com nodeValue.
+            var textoSelecionado = selecionada.nextSibling.nodeValue;
+
+            // puxa o valor da variavel global que está em zero.
+            var perguntaAtual = perguntas[indiceAtual];
+
+            // verifica se o valor da input selecionada é igual a minha 
+            // propriedade da minha primeira pergunta. Se estiver correta,
+            // a variavel global contAcerto vai receber mais 1.
+            if (textoSelecionado == perguntaAtual.certa) {
+                contAcerto++;
+                console.log(textoSelecionado);
+            }
+            console.log(contAcerto);
+
+            // depois de validar a pergunta 1, vamos para a proxima,
+            // utilizando o indiceAtual, que continuara percorrendo a minha lista.
+            indiceAtual++;
+            if (indiceAtual >= perguntas.length) {
+                
+                document.getElementById("proxima").innerHTML = "Finalizar"
+                document.getElementById("proxima").setAttribute("onclick", "finalizarQuiz()");
+                
+            } else {
+                carregarPergunta();
+            }
         }
-
-        // o textoSelecionado, é o texto que minha opção tem,
-        // ele pega a input selecionada e usa o nextSibling para 
-        // caminhar para o lado
-        var textoSelecionado = selecionada.nextSibling.nodeValue.trim();
-
-        var perguntaAtual = perguntas[indiceAtual];
-
-        if (textoSelecionado == perguntaAtual.certa) {
-            contAcerto++;
-        }
-
-        indiceAtual++;
-
-        if (indiceAtual >= perguntas.length) {
-            alert("Fim do quiz! Acertos: " + contAcerto);
-            return;
-        }
-
-        carregarPergunta();
     }
 
+    // essa funcao vai finalizar o quiz. Pega a contAcerto e cria a variavel erros,
+    // na dashboard, nas kpis vou mostrar os acertos e erros na ultima tentativa?
+    function finalizarQuiz() {
+        alert('Quiz finalizado');
+        document.getElementById("areaQuiz").innerHTML = telaInicial;
 
+        erros = perguntas.length - contAcerto;
 
+        fetch("/tentativa/registrarTentativa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                contAcertoServer: contAcerto,
+                fkUsuarioServer: fkUsuario,
+                erroServer: erro,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log('Tentativa registrada!')
+
+                } else {
+                    throw "Erro ao registrar tentativa!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                return false;
+            });
+
+        indiceAtual = 0;
+        contAcerto = 0;
+        erro = 0;
+        //document.getElementById("areaQuiz").innerHTML = telaInicial;
+
+    }
 
 </script>
