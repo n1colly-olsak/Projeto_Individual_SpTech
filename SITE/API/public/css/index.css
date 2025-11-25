@@ -118,7 +118,7 @@ hr{
 .oqueE p{
     width: 500px;
     font-size: 18px;
-    /*line-height: 28px;*/
+    line-height: 28px;
 }
 
 .oqueE img{
@@ -138,6 +138,7 @@ hr{
 .maisSobre p{
     width: 500px;
     font-size: 18px;
+    line-height: 28px;
 }
 
 .maisSobre img{
@@ -257,6 +258,7 @@ hr{
 .brasil p{
     width: 500px;
     font-size: 18px;
+    line-height: 28px;
 }
 
 .brasil img{
@@ -273,8 +275,11 @@ hr{
 }
 
 .euEAGinastica p{
-    text-align: center;
-    width: 65%;
+    display: flex;
+    text-align: flex-start;
+    width: 57%;
+    font-size: 18px;
+    line-height: 28px
 }
 
 .euEAGinastica .imagem img{
@@ -290,8 +295,145 @@ hr{
     margin-top: 20px;
 }
 
+.euEAGinastica .legendas {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    width: 100%;
+}
+
+.euEAGinastica .legendas h3{
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    width: 100%;
+}
+
+.maisConquistas {
+    display: flex;
+    justify-content: center;
+}
+
+.fotos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 320px;
+}
+
+.imagemVertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagemVertical img {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.imagemVertical p{
+    font-size: 20px;
+}
 
 
+
+/* .imagemVertical2 p{
+    font-size: 20px;
+}
+
+.imagemVertical3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagemVertical3 img{
+    width: 160px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.imagemVertical3 p{
+    font-size: 20px;
+} */
+
+/* .imagemVertical4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagemVertical4 img{
+    width: 160px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.imagemVertical4 p{
+    font-size: 20px;
+} */
+
+/*.imagemVertical1, .imagemVertical2, .imagemVertical3, .imagemVertical4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 200px;
+    height: 320px;
+    border-radius: 15px;
+}
+
+.imagemVertical1 {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.imagemVertical2 {
+    background-image: url(IMAGENS/fotoVertical2.jpeg);
+    background-size: cover;
+}
+
+.imagemVertical3 {
+    background-image: url(IMAGENS/fotoVertical3.jpeg);
+    background-size: cover;
+}
+
+.imagemVertical4 {
+    background-image: url(IMAGENS/fotoVertical4.jpeg);
+    background-size: cover;
+}
+
+.legendaVerticais {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-around;
+    width: 100%;
+    font-size: 20px;
+}
+
+.legendaVerticais .realizacao {
+    margin-left: 30px;
+}
+
+.legendaVerticais .amor {
+    margin-left: 60px;
+}
+
+.legendaVerticais .parceria {
+    margin-left: 90px;
+}
+
+.legendaVerticais .representatividade {
+    margin-left: 80px;
+}*/
 
 /*linear-gradient(to right, rgb(0, 0, 0), rgb(255, 255, 255));*/
 

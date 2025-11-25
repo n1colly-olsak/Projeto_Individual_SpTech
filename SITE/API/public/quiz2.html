@@ -12,11 +12,8 @@
 
     <header>
         <div class="navegacao">
-            <div class="olaUser">
-                <span>Olá, user</span>
-            </div>
-
             <ul class="navbar">
+                <span id="mensagemUsuario">Olá, user</span>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="dashboard.html">Acessar dashboard</a></li>
             </ul>
@@ -250,7 +247,7 @@
             body: JSON.stringify({
                 contAcertoServer: contAcerto,
                 fkUsuarioServer: fkUsuario,
-                erroServer: erro,
+                erroServer: erros,
             }),
         })
             .then(function (resposta) {

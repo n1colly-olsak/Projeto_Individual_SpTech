@@ -1,79 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
-    <div class="navegacao">
-        
-            <ul class="navbar">
-                <span>Olá, user</span>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="telaUsuario.html">Tela de usuário</a></li>
-            </ul>
+<body onload="buscarDados()">
+  <div class="navegacao">
 
-        </div>
+    <ul class="navbar">
+      <span id="mensagemUsuario">Olá, user</span>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="quiz2.html">Tela de usuário</a></li>
+    </ul>
 
-    <div class="dashboard">
+  </div>
 
-        <div class="grafico">
-            <h2>Histórico de acertos nas 4 tentativas</h2>
-            <canvas id="graficoTentativas"></canvas>
-        </div>
+  <div class="dashboard">
 
-        <div class="kpis">
-            
-            <div class="kpiAcerto">
-                <p>Acertos na última tentativa</p>
-                <p>oi</p>
-            </div>
+    <div class="grafico">
+      <h2>Histórico de acertos nas 4 tentativas</h2>
+      <canvas id="graficoTentativas"></canvas>
+    </div>
 
-            
-            <div class="kpiErro">
-                <p>Erros na última tentativa</p>
-                <p>oi</p>
-            </div>
+    <div class="kpis">
 
-        </div>
+      <div class="kpiAcerto">
+        <p>Acertos na última tentativa</p>
+        <p id="valorAcerto">oi</p>
+      </div>
+
+
+      <div class="kpiErro">
+        <p>Erros na última tentativa</p>
+        <p id="valorErro">oi</p>
+      </div>
 
     </div>
 
-    
-    
+  </div>
+
+
+
 </body>
 
 <script>
-  const ctx = document.getElementById('graficoTentativas');
 
-  var tentativas = ["tentativa1", "tentativa2", "tentativa3", "tentativa4"]
-  var acertos = [3,4,2,7];
+  var qtdAcertos = 0;
+  var qtdErros = 0;
+  var tentativa1 = 0;
+  var tentativa2 = 0;
+  var tentativa3 = 0;
+  var tentativa4 = 0;
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: tentativas,
-      datasets: [{
-        label: 'Acertos',
-        data: acertos,
-        borderWidth: 1,
-        backgroundColor: 'rgba(183, 2, 254, 0.486)',
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
+  function buscarDados() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+    document.getElementById('mensagemUsuario').innerHTML = `Olá, ${nomeUsuario}`;
+
+    fetch(`/tentativa/buscarTentativa/${idUsuario}`, {
+
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO buscarTentativaGrafico!")
+
+      if (resposta.ok) {
+        console.log("RESPOSTA", resposta);
+
+        resposta.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          console.log(resposta)
+
+          // separando os valores 
+          var acertoValores = [];
+          for (var i = 0; i < resposta.length; i++) {
+            acertoValores.push(resposta[i].qtdAcertos);
+          }
+
+          
+
+          /* tentativa1 = json[0].qtdAcertos;
+          tentativa2 = json[0].qtdAcertos;
+          tentativa3 = json[0].qtdAcertos;
+          tentativa4 = json[0].qtdAcertos; */
+
+          const ctx = document.getElementById('graficoTentativas');
+
+
+          var tentativas = ["tentativa1", "tentativa2", "tentativa3", "tentativa4"]
+
+          const graficoTentativas = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: tentativas,
+              datasets: [{
+                label: 'Acertos',
+                data: acertoValores,
+                borderWidth: 1,
+                backgroundColor: 'rgba(183, 2, 254, 0.486)',
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+
+          // console.log(tentativa1, tentativa2, tentativa3, tentativa4);
+
+          // acessar o json que o banco retornou e passar esses valores para variáveis
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar buscar os dados para o gráfico");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
       }
-    }
-  });
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+
+    fetch(`/tentativa/buscarTentativaKpi/${idUsuario}`, {
+
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO buscarTentivaKpi!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          qtdAcertos = json.qtdAcertos;
+          qtdErros = json.qtdErros;
+
+          valorAcerto.innerHTML = qtdAcertos;
+          valorErro.innerHTML = qtdErros;
+          // acessar o json que o banco retornou e passar esses valores para variáveis
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar buscar os dados para o gráfico");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+  }
+
+
 
 </script>
-    
+
 
 </html>

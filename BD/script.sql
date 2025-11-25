@@ -19,10 +19,11 @@ insert into quiz values
 	(1, 'Um quiz ginástico', 8);
 
 create table tentativa (
-idTentativa int,
+idTentativa int auto_increment,	
 fkUsuario int,
 fkQuiz int,
 qtdAcertos int,
+qtdErros int,
 constraint pkCompostaTentativa 
 	primary key(idTentativa, fkUsuario, fkQuiz),
 constraint fkUsuario 
@@ -32,4 +33,10 @@ constraint fkQuiz
 	foreign key (fkQuiz) 
 		references quiz(idQuiz));
         
-select * from tentativa;
+select * from tentativa where fkUsuario = 1;
+select * from tentativa where fkUsuario = 3 order by idTentativa desc limit 4;
+select qtdAcertos, qtdErros from tentativa where fkUsuario order by idTentativa desc limit 1;
+
+drop table tentativa;
+
+show tables;
