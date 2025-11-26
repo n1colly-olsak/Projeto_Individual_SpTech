@@ -5,31 +5,36 @@ body {
     padding: 0px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background: white;
+    background-image: url(IMAGENS/iamgemQuiz.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
 }
 
 .navegacao{
     display: flex;
+    justify-content: center;
     justify-content: space-around;
-    background-color: blueviolet;
+    width: 100%;
+    border-bottom: 1px solid white;
 }
 
 .navbar{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     list-style: none;
-    width: 50%;
+    width: 100%;
     margin-right: 40px;
+    font-size: 20px;
     z-index: 1;
 }
 
 a {
     text-decoration: none;
     color: white;
-    font-family: "IM Fell French Canon", serif;
-    font-size: 25px;
+    font-family: Arial, sans-serif;
 }
 
 .principal {
@@ -38,7 +43,6 @@ a {
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: blue;
 }
 
 .titulo {
@@ -53,8 +57,26 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 50px;
     width: 50%;
     height: 400px;
-    background: rgba(0, 0, 0, 0.345);
+    background: rgba(0, 0, 0, 0.766);
     border-radius: 20px;
+}
+
+#h2_pergunta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin-left: 60px;
+}
+
+.div_alternativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }

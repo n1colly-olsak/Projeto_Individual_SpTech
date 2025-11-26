@@ -24,7 +24,7 @@
 
         <div class=titulo>
 
-            <h2>Quiz</h2>
+            <h1>Quiz</h1>
 
         </div>
 
@@ -43,6 +43,7 @@
 
 </html>
 <script>
+
 
     var contAcerto = 0;
     var indiceAtual = 0; // percorrer minha variavel perguntas
@@ -191,7 +192,7 @@
         // o parâmetro de "name", ou seja, procurando qualquer input que faça parte
         // desse grupo/name, que esteja selecionada.
         var selecionada = document.querySelector("input[name='pergunta']:checked");
-    
+
 
         //se a variavel selecionada não achar nenhum elemento selecionado
         //return utilizado para não executar mais código se selecionada estiver nulo
@@ -221,10 +222,10 @@
             // utilizando o indiceAtual, que continuara percorrendo a minha lista.
             indiceAtual++;
             if (indiceAtual >= perguntas.length) {
-                
+
                 document.getElementById("proxima").innerHTML = "Finalizar"
                 document.getElementById("proxima").setAttribute("onclick", "finalizarQuiz()");
-                
+
             } else {
                 carregarPergunta();
             }
